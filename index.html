@@ -5,17 +5,18 @@
     <meta name="author" content="Ethan Kuo">
     <meta name="description" content="Project 1">
     <title>Ethan Kuo website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="navbar">
-        <div class="navbar-elem">About</div>
-        <div class="navbar-elem">Projects</div>
-        <div class="navbar-elem">Contact</div>
+        <a class="navbar-elem" href="#about">About</a>.
+        <a class="navbar-elem" href="#projects">Projects</a>.
+        <a class="navbar-elem" href="#contact">Contact</a>.
     </div>
 
     <!-- About -->
-    <h1>Ethan Kuo</h1>
+    <h1 id="about">Ethan Kuo</h1>
     <h4>Currently...</h4>
     <ul>
         <li>studying computer science at UC Berkeley</li>
@@ -24,22 +25,50 @@
     </ul>
 
     <!-- Projects -->
-    <h2>Projects</h2>
+    <h2 id="projects">Projects</h2>
     <h3>Graph Algorithms Visualizer</h3>
     <div class="project-description">
         <img class="project-image" src="graph-algo-visualizer-pic.png" alt="">
-        <p>This is a description of my project.</p>
+        <p> After studying graph algorithms in CS61B, I sought to apply what I had learned by creating a graph
+            algorithms visualizer. The visualizer is interactive and enables users to create their own graphs and run
+            various
+            pathfinding and spanning algorithms on them. The visualizer features Dijkstra's, A* (with Euclidean and
+            Manhattan heuristics),
+            Prim's, and Kruskal's algorithm.</p>
     </div>
-    <a href="https://github.com/kuo-ethan/Graph-Algorithms-Visualizer">Try it out here!</a>
+    <a href="https://github.com/kuo-ethan/Graph-Algorithms-Visualizer"><button>Try it out here!</button></a>
 
 
     <!-- Contact -->
-    <h2>Let's connect</h2>
+    <h2 id="contact">Let's connect</h2>
 
-    <h6>Email me at ek0335@berkeley.edu or connect with me on
+    <p>Email me at ek0335@berkeley.edu or connect with me on
         <a href="https://www.linkedin.com/in/kuo-ethan/">Linkedin</a>
         !
-    </h6>
+    </p>
+
+    <h3>
+        Very important form
+    </h3>
+    <form onsubmit="twiceFunc()">
+        <label for="lname">Favorite TWICE member</label>
+        <input id="twice-input" type="text" name="lname"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function twiceFunc() {
+            const favorite_twice_member = document.getElementById('twice-input').value.toLowerCase();
+            twice_members = ["nayeon", "momo", "sana", "tzuyu", "jeongyeon", "jihyo", "mina", "chaeyoung", "dahyun"]
+            message = "Sorry, that isn't a twice member!"
+            if (favorite_twice_member === 'tzuyu') {
+                message = "Me too! Tzuyu is the best"
+            } else if (twice_members.includes(favorite_twice_member)) {
+                message = `Nice, I like ${favorite_twice_member} too!`
+            }
+            alert(message)
+        }
+    </script>
 </body>
 
 </html>
